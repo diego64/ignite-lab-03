@@ -23,4 +23,4 @@ export function Logo(props: LogoProps) {
       </defs>
     </svg>
   )
-}
+} 
