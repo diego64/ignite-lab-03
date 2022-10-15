@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
@@ -12,8 +13,13 @@ import { Logo } from "../Logo";
 export function SignIn() {
   const [isUserSigndIn, setIsUserSigndIn] = useState(false);
 
-  function handleSignIn(event: FormEvent) {
+  async function handleSignIn(event: FormEvent) {
     event.preventDefault();
+
+    await axios.post('/sessions', {
+      email: 'diegoferreira@gmail.com',
+      password: '12345678',
+    });
 
     setIsUserSigndIn(true);
   };
@@ -42,7 +48,7 @@ export function SignIn() {
             <Envelope />
           </TextInput.Icon>
 
-          <TextInput.Input type="email" id="email" placeholder="Digite seu e-mail" />
+          <TextInput.Input type="email" id="email" placeholder="Digite o seu e-mail" />
         </TextInput.Root>
       </label>
 
